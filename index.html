@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap">
 <style>
 :root{
-  /* Plan : fond lilas pâle, encre aubergine, un seul accent vermillon, vert uniquement dans le chat */
   --ground:#F2F0F7; --ink:#17142B; --muted:#5B5873; --body:#3B3856; --line:#B9B6CC;
   --accent:#C93A17; --panel:#ffffff; --chat-bot:#2E2954; --chat-user:#17704A; --soft:#C9C6E0;
   --display:'Bricolage Grotesque',system-ui,sans-serif; --text:'DM Sans',system-ui,sans-serif;
@@ -108,7 +107,7 @@ footer{border-top:1px solid var(--line);padding-top:24px;padding-bottom:40px;dis
       <a class="btn accent js-wa" href="#exemple">Demander une démo</a>
       <a class="link-strong" href="#exemple">Essayer l'exemple</a>
     </div>
-    <div class="fine">1er mois à 50 € · puis 69 € HTVA par mois · sans engagement · installation faite avec toi en visio</div>
+    <div class="fine">1er mois à 50 € · puis 19 € HTVA par mois · sans engagement · installation faite avec toi en visio</div>
   </div>
 
   <div class="chat" id="exemple">
@@ -176,7 +175,7 @@ footer{border-top:1px solid var(--line);padding-top:24px;padding-bottom:40px;dis
   <div class="price-box">
     <div class="l">
       <div class="amount">50 €<small> le 1er mois</small></div>
-      <div style="font-size:20px">Puis 69 € HTVA par mois. Sans engagement, tu arrêtes quand tu veux.</div>
+      <div style="font-size:20px">Puis 19 € HTVA par mois. Sans engagement, tu arrêtes quand tu veux.</div>
     </div>
     <div class="r">
       <div>Installation faite avec toi en visio</div>
@@ -216,14 +215,12 @@ var WA_NUMBER = "";
 var WA_TEXT = "Bonjour, je voudrais une démo de l'assistant WhatsApp pour mon salon.";
 
 (function () {
-  // Boutons WhatsApp
   var digits = String(WA_NUMBER).replace(/[^0-9]/g, "");
   if (digits) {
     var href = "https://wa.me/" + digits + "?text=" + encodeURIComponent(WA_TEXT);
     document.querySelectorAll(".js-wa").forEach(function (a) { a.setAttribute("href", href); });
   }
 
-  // Démo de conversation
   var START = "Bonjour ! Je suis l'assistante de Studio Nails. Je peux te donner les tarifs, les horaires, ou te réserver un créneau.";
   var CHIPS = {
     start: [["price", "Combien coûte la pose ?"], ["sat", "Une place samedi ?"], ["where", "Vous êtes où ?"]],
@@ -269,7 +266,6 @@ var WA_TEXT = "Bonjour, je voudrais une démo de l'assistant WhatsApp pour mon s
   add("bot", START);
   drawChips();
 
-  // Calculateur
   var m = document.getElementById("c-msgs"), r = document.getElementById("c-rate"), t = document.getElementById("c-ticket");
   function calc() {
     var msgs = Number(m.value), rate = Number(r.value), ticket = Number(t.value);
